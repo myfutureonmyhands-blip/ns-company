@@ -1,0 +1,1832 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NS Company — Рекламно-производственная компания полного цикла | Астана</title>
+    <meta name="description" content="NS Company — рекламно-производственная компания полного цикла в Астане (ул. Алпамыс батыр, 42). Собственное производство 1000+ м², 75 единиц оборудования, наружная реклама, выставочные стенды, полиграфия и брендирование.">
+
+    <!-- Фирменная типографика: Montserrat (геометрические заголовки как в презентации NS) + Inter (чистый текст) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Montserrat', 'sans-serif'],
+                    },
+                    colors: {
+                        alabaster: '#F7F6F3',
+                        paper: '#FFFFFF',
+                        ink: '#121D2B',
+                        slateDark: '#1C2836',
+                        muted: '#526071',
+                        line: '#E2E0DA',
+                        brand: {
+                            blue: '#1E4B8F',
+                            blueDark: '#143568',
+                            tint: '#EDF2F8',
+                            ochre: '#D9822B',
+                            ochreDark: '#B8691D',
+                            wa: '#1E9E56',
+                            waHover: '#178246'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #F7F6F3;
+            color: #121D2B;
+            overflow-x: hidden;
+        }
+
+        /* Деликатная типографская сетка и точечный растр в стиле слайдов NS Company */
+        .ns-dot-pattern {
+            background-image: radial-gradient(rgba(18, 29, 43, 0.14) 1.15px, transparent 1.15px);
+            background-size: 16px 16px;
+        }
+
+        .ns-arch-grid {
+            background-size: 64px 64px;
+            background-image:
+                linear-gradient(to right, rgba(18, 29, 43, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(18, 29, 43, 0.03) 1px, transparent 1px);
+        }
+
+        /* Фирменный заголовок в стиле презентации NS Company с короткой толстой линией слева снизу */
+        .ns-heading-accent {
+            position: relative;
+            padding-bottom: 14px;
+        }
+        .ns-heading-accent::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 84px;
+            height: 3px;
+            background-color: #121D2B;
+        }
+        .ns-heading-accent-blue::after {
+            background-color: #1E4B8F;
+        }
+        .ns-heading-accent-light::after {
+            background-color: #FFFFFF;
+        }
+
+        /* Фирменная вертикальная черта слева от абзаца (как на слайде «О нас») */
+        .ns-quote-bar {
+            border-left: 2.5px solid #121D2B;
+            padding-left: 18px;
+        }
+
+        /* Плавное появление блоков при прокрутке */
+        .reveal {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1), transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .delay-1 { transition-delay: 0.08s; }
+        .delay-2 { transition-delay: 0.16s; }
+        .delay-3 { transition-delay: 0.24s; }
+
+        /* Hero-слайдер: кроссфейд и плавное масштабирование */
+        .hero-slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: scale(1.02);
+            transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1), transform 0.85s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.65s;
+        }
+        .hero-slide.active {
+            opacity: 1;
+            visibility: visible;
+            transform: scale(1);
+        }
+
+        /* Треки горизонтальных слайдеров */
+        .slider-track {
+            display: flex;
+            transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+            will-change: transform;
+        }
+
+        /* Карточка с аккуратным откликом */
+        .ns-card {
+            transition: border-color 0.25s ease, transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s ease;
+        }
+        .ns-card:hover {
+            border-color: #1E4B8F;
+            transform: translateY(-2px);
+            box-shadow: 0 14px 28px -16px rgba(18, 29, 43, 0.15);
+        }
+
+        /* Скрытие скроллбара для вкладок на мобильных */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-blue selection:text-white">
+
+    <!-- =====================================================================
+         ВЕРХНЯЯ ПАНЕЛЬ ДЕМО-ПРОТОТИПА (СВОРАЧИВАЕМАЯ)
+         ===================================================================== -->
+    <div id="demo-pitch-bar" class="bg-ink text-slate-200 border-b border-slate-800 text-xs sm:text-[13px] relative z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
+            <div class="flex items-center gap-2.5">
+                <span class="w-2 h-2 rounded-full bg-brand-ochre shrink-0"></span>
+                <p class="leading-snug">
+                    <span class="font-semibold text-white">Демонстрационный прототип сайта для NS Company (Астана).</span>
+                    <span class="text-slate-300">Разработан с опорой на опыт создания сайта для крупной типографии (14 лет на рынке).</span>
+                </p>
+            </div>
+            <div class="flex items-center gap-4 self-end sm:self-auto shrink-0">
+                <button type="button" onclick="togglePitchModal(true)" class="text-white underline underline-offset-4 decoration-slate-400 hover:decoration-white font-medium transition cursor-pointer">
+                    Подробнее о решении →
+                </button>
+                <button type="button" onclick="document.getElementById('demo-pitch-bar').remove()" aria-label="Скрыть панель" class="text-slate-400 hover:text-white p-0.5 transition cursor-pointer">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M6 18L18 6M6 6l12 12"/></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- =====================================================================
+         ШАПКА САЙТА (HEADER)
+         ===================================================================== -->
+    <header class="sticky top-0 z-40 bg-alabaster/95 backdrop-blur-md border-b border-line">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+            
+            <!-- Официальный геометрический логотип NS COMPANY -->
+            <a href="#" class="flex items-center gap-3.5 group">
+                <div class="bg-ink px-2.5 py-2 rounded-lg transition group-hover:bg-brand-blue">
+                    <svg width="42" height="30" viewBox="0 0 110 82" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Логотип NS Company">
+                        <polygon points="4,8 42,46 4,46" fill="#2563EB"/>
+                        <rect x="28" y="8" width="14" height="38" fill="#FFFFFF"/>
+                        <path d="M88 14H58C52.4772 14 48 18.4772 48 24C48 29.5228 52.4772 34 58 34H78C83.5228 34 88 38.4772 88 44C88 49.5228 83.5228 54 78 54H48" stroke="#2563EB" stroke-width="11" stroke-linecap="square"/>
+                        <rect x="92" y="4" width="10" height="10" fill="#FFFFFF"/>
+                        <text x="53" y="73" fill="#FFFFFF" font-family="Montserrat, sans-serif" font-weight="800" font-size="13" letter-spacing="2.5" text-anchor="middle">COMPANY</text>
+                    </svg>
+                </div>
+                <div>
+                    <span class="block font-display font-extrabold text-ink text-base sm:text-lg tracking-tight leading-none">NS COMPANY</span>
+                    <span class="block text-[11px] sm:text-xs text-muted mt-1">Реклама и полиграфия • Астана</span>
+                </div>
+            </a>
+
+            <!-- Навигация -->
+            <nav class="hidden lg:flex items-center gap-7 text-[13px] font-semibold text-muted">
+                <a href="#about" class="hover:text-brand-blue transition">О компании</a>
+                <a href="#directions" class="hover:text-brand-blue transition">Направления</a>
+                <a href="#projects" class="hover:text-brand-blue transition">Проекты</a>
+                <a href="#history" class="hover:text-brand-blue transition">История</a>
+                <a href="#advantages" class="hover:text-brand-blue transition">Преимущества</a>
+                <a href="#contacts" class="hover:text-brand-blue transition">Контакты</a>
+            </nav>
+
+            <!-- Кнопка перехода в конфигуратор WhatsApp -->
+            <div class="flex items-center gap-3">
+                <a href="#configurator" class="inline-flex items-center gap-2 bg-brand-blue hover:bg-brand-blueDark text-white text-xs sm:text-[13px] font-semibold px-4 sm:px-5 py-2.5 rounded-lg transition">
+                    <span>Рассчитать в WhatsApp</span>
+                </a>
+                <button id="mobile-menu-btn" type="button" class="lg:hidden p-2 rounded-lg border border-line bg-white text-ink" aria-label="Открыть меню">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Мобильное меню -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-line px-4 py-4 space-y-2 text-sm font-medium">
+            <a href="#about" class="block py-2 text-ink">О компании и мощности</a>
+            <a href="#directions" class="block py-2 text-ink">Наши направления (9)</a>
+            <a href="#projects" class="block py-2 text-ink">Реализованные проекты</a>
+            <a href="#history" class="block py-2 text-ink">История компании в кадрах</a>
+            <a href="#advantages" class="block py-2 text-ink">Почему выбирают нас</a>
+            <a href="#configurator" class="block py-2 text-brand-blue font-semibold">Конфигуратор сметы в WhatsApp</a>
+            <a href="#contacts" class="block py-2 text-ink">Контакты (ул. Алпамыс батыр, 42)</a>
+        </div>
+    </header>
+
+    <!-- =====================================================================
+         HERO SECTION (SPLIT-КОМПОЗИЦИЯ + СЛАЙДЕР РЕАЛЬНЫХ ПРОЕКТОВ NS COMPANY)
+         ===================================================================== -->
+    <section class="relative ns-arch-grid border-b border-line pt-10 pb-14 lg:pt-16 lg:pb-20 overflow-hidden">
+        <!-- Фоновый водяной знак логотипа NS и диагональные линии (в стиле презентации NS Company) -->
+        <svg class="hidden lg:block absolute -right-16 -top-10 w-[540px] h-[420px] text-ink/[0.03] pointer-events-none select-none" viewBox="0 0 110 82" fill="currentColor">
+            <polygon points="4,8 42,46 4,46"/>
+            <rect x="28" y="8" width="14" height="38"/>
+            <path d="M88 14H58C52.4772 14 48 18.4772 48 24C48 29.5228 52.4772 34 58 34H78C83.5228 34 88 38.4772 88 44C88 49.5228 83.5228 54 78 54H48" fill="none" stroke="currentColor" stroke-width="11"/>
+            <rect x="92" y="4" width="10" height="10"/>
+        </svg>
+        <div class="hidden xl:block absolute left-0 bottom-0 w-44 h-44 ns-dot-pattern opacity-60 pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+                
+                <!-- Левая колонка: Подлинный оффер и факты NS Company -->
+                <div class="lg:col-span-6 space-y-6 reveal is-visible">
+                    <div class="inline-flex flex-wrap items-center gap-2 text-xs font-semibold text-ink bg-white border border-line px-3.5 py-1.5 rounded-md">
+                        <span class="w-2 h-2 rounded-full bg-brand-blue"></span>
+                        <span>Астана • ул. Алпамыс батыр, 42 • Работаем с 2012 года</span>
+                    </div>
+
+                    <h1 class="font-display font-extrabold text-3xl sm:text-4xl lg:text-[40px] text-ink uppercase leading-[1.15] tracking-tight ns-heading-accent">
+                        Рекламно-производственная компания полного цикла
+                    </h1>
+
+                    <p class="ns-quote-bar text-sm sm:text-base text-muted leading-relaxed max-w-xl">
+                        С 2012 года мы создаем эффективные рекламные решения для бизнеса, государственных организаций и коммерческих объектов по всему Казахстану. Мы объединяем дизайн, производство, печать, изготовление конструкций, монтаж и реализацию проектов любой сложности в одной компании.
+                    </p>
+
+                    <!-- Плашка рассрочки Kaspi.kz из реального поста @ns_company_astana -->
+                    <div class="inline-flex items-center gap-3 bg-white border border-line px-4 py-2.5 rounded-lg">
+                        <span class="px-2 py-0.5 rounded bg-red-600 text-white font-display font-extrabold text-[11px] tracking-wide">Kaspi.kz</span>
+                        <span class="text-xs sm:text-sm font-medium text-ink">
+                            <strong>Закажи сейчас, плати потом</strong> — доступна рассрочка для бизнеса и мероприятий
+                        </span>
+                    </div>
+
+                    <div class="flex flex-wrap items-center gap-3 pt-1">
+                        <a href="#configurator" class="inline-flex items-center justify-center gap-2 bg-brand-blue hover:bg-brand-blueDark text-white font-semibold text-sm px-6 py-3.5 rounded-lg transition">
+                            <span>Рассчитать стоимость</span>
+                            <span>→</span>
+                        </a>
+                        <a href="#projects" class="inline-flex items-center justify-center bg-white hover:bg-brand-tint text-ink border border-line font-semibold text-sm px-6 py-3.5 rounded-lg transition">
+                            <span>Реализованные объекты</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Правая колонка: Слайдер реальных объектов NS Company -->
+                <div class="lg:col-span-6 reveal delay-1 is-visible">
+                    <div class="bg-white rounded-xl border border-line p-3 sm:p-4 shadow-xs">
+                        <div id="hero-slider-box" class="relative h-[370px] sm:h-[430px] rounded-lg overflow-hidden bg-slateDark">
+                            
+                            <!-- Слайд 1: 5G Kcell RUN -->
+                            <div class="hero-slide active">
+                                <img src="images/hero-kcell.jpg"
+                                     onerror="this.src='https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1200&q=80'"
+                                     alt="Оформление марафона 5G Kcell RUN в Астане"
+                                     class="w-full h-full object-cover opacity-50">
+                                <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/55 to-transparent"></div>
+                                <div class="absolute inset-0 p-6 sm:p-8 flex flex-col justify-between text-white">
+                                    <div class="flex items-center justify-between gap-2">
+                                        <span class="text-[11px] font-bold uppercase tracking-wider bg-white/15 px-2.5 py-1 rounded">Оформление мероприятий</span>
+                                        <span class="text-xs font-semibold bg-brand-blue px-2.5 py-1 rounded">Астана • Массовый старт</span>
+                                    </div>
+                                    <div class="space-y-2 max-w-md">
+                                        <h2 class="font-display font-extrabold text-2xl sm:text-3xl uppercase leading-tight">5G Kcell RUN — застройка трассы и сцены</h2>
+                                        <p class="text-xs sm:text-sm text-slate-200 leading-relaxed">
+                                            Стартово-финишные арки с таймерами, сценический комплекс, пресс-воллы и флаговая навигация для городского забега.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Слайд 2: Samruk-Kazyna и Orda Trade Astana -->
+                            <div class="hero-slide">
+                                <img src="images/hero-samruk.jpg"
+                                     onerror="this.src='https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80'"
+                                     alt="Оформление помещений для Samruk-Kazyna и Orda Trade Astana"
+                                     class="w-full h-full object-cover opacity-50">
+                                <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/55 to-transparent"></div>
+                                <div class="absolute inset-0 p-6 sm:p-8 flex flex-col justify-between text-white">
+                                    <div class="flex items-center justify-between gap-2">
+                                        <span class="text-[11px] font-bold uppercase tracking-wider bg-white/15 px-2.5 py-1 rounded">Оформление помещений</span>
+                                        <span class="text-xs font-semibold bg-brand-blue px-2.5 py-1 rounded">Корпоративный сектор</span>
+                                    </div>
+                                    <div class="space-y-2 max-w-md">
+                                        <h2 class="font-display font-extrabold text-2xl sm:text-3xl uppercase leading-tight">Samruk-Kazyna & Orda Trade Astana</h2>
+                                        <p class="text-xs sm:text-sm text-slate-200 leading-relaxed">
+                                            Интерьерные объемные логотипы с контражурной подсветкой, фрезеровкой акрила и отделкой ресепшн-зон.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Слайд 3: Выставочный стенд Evident / ETS -->
+                            <div class="hero-slide">
+                                <img src="images/hero-evident.jpg"
+                                     onerror="this.src='https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1200&q=80'"
+                                     alt="Выставочный стенд Evident / ETS"
+                                     class="w-full h-full object-cover opacity-50">
+                                <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/55 to-transparent"></div>
+                                <div class="absolute inset-0 p-6 sm:p-8 flex flex-col justify-between text-white">
+                                    <div class="flex items-center justify-between gap-2">
+                                        <span class="text-[11px] font-bold uppercase tracking-wider bg-white/15 px-2.5 py-1 rounded">Выставочные стенды</span>
+                                        <span class="text-xs font-semibold bg-brand-blue px-2.5 py-1 rounded">Застройка под ключ</span>
+                                    </div>
+                                    <div class="space-y-2 max-w-md">
+                                        <h2 class="font-display font-extrabold text-2xl sm:text-3xl uppercase leading-tight">Выставочный стенд Evident / ETS</h2>
+                                        <p class="text-xs sm:text-sm text-slate-200 leading-relaxed">
+                                            Индивидуальное проектирование, производство стенда, стойки ресепшн, брендирование и монтаж на международной выставке.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Слайд 4: Фасадная вывеска Colab и SPA-салон IMBIR -->
+                            <div class="hero-slide">
+                                <img src="images/hero-colab.jpg"
+                                     onerror="this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80'"
+                                     alt="Фасадная вывеска Colab и объемные буквы IMBIR"
+                                     class="w-full h-full object-cover opacity-50">
+                                <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/55 to-transparent"></div>
+                                <div class="absolute inset-0 p-6 sm:p-8 flex flex-col justify-between text-white">
+                                    <div class="flex items-center justify-between gap-2">
+                                        <span class="text-[11px] font-bold uppercase tracking-wider bg-white/15 px-2.5 py-1 rounded">Наружная реклама</span>
+                                        <span class="text-xs font-semibold bg-brand-blue px-2.5 py-1 rounded">Фасадный монтаж</span>
+                                    </div>
+                                    <div class="space-y-2 max-w-md">
+                                        <h2 class="font-display font-extrabold text-2xl sm:text-3xl uppercase leading-tight">Фасадная вывеска Colab & SPA IMBIR</h2>
+                                        <p class="text-xs sm:text-sm text-slate-200 leading-relaxed">
+                                            Вертикальные фасадные конструкции, объемные световые буквы и многоцветные логотипы с высотным монтажом.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Прогресс-бар и переключатели Hero-слайдера -->
+                        <div class="pt-3 px-1 space-y-2.5">
+                            <div class="w-full h-0.5 bg-line overflow-hidden rounded-full">
+                                <div id="hero-progress-bar" class="h-full bg-brand-blue transition-all duration-500" style="width: 25%"></div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-2" id="hero-dots">
+                                    <button type="button" onclick="setHeroSlide(0)" class="hero-dot h-2 w-7 rounded-full bg-brand-blue transition-all cursor-pointer" aria-label="Слайд 1"></button>
+                                    <button type="button" onclick="setHeroSlide(1)" class="hero-dot h-2 w-2 rounded-full bg-slate-300 transition-all cursor-pointer" aria-label="Слайд 2"></button>
+                                    <button type="button" onclick="setHeroSlide(2)" class="hero-dot h-2 w-2 rounded-full bg-slate-300 transition-all cursor-pointer" aria-label="Слайд 3"></button>
+                                    <button type="button" onclick="setHeroSlide(3)" class="hero-dot h-2 w-2 rounded-full bg-slate-300 transition-all cursor-pointer" aria-label="Слайд 4"></button>
+                                </div>
+                                <div class="flex items-center gap-1.5">
+                                    <span id="hero-step-label" class="text-xs font-semibold text-muted mr-2">01 / 04</span>
+                                    <button type="button" onclick="prevHeroSlide()" class="p-2 rounded-lg border border-line hover:bg-brand-tint text-ink transition cursor-pointer" aria-label="Назад">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                                    </button>
+                                    <button type="button" onclick="nextHeroSlide()" class="p-2 rounded-lg border border-line hover:bg-brand-tint text-ink transition cursor-pointer" aria-label="Вперед">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================================
+         РАЗДЕЛ 01 — О НАС И ПРОИЗВОДСТВЕННЫЕ МОЩНОСТИ (В СТИЛЕ СЛАЙДА «О НАС»)
+         ===================================================================== -->
+    <section id="about" class="py-16 lg:py-24 bg-white border-b border-line relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center mb-12 reveal">
+                <!-- Левая часть: Точный текст со слайда «О нас» -->
+                <div class="lg:col-span-6 space-y-5">
+                    <span class="text-xs font-bold uppercase tracking-widest text-brand-blue">01 / О компании</span>
+                    <h2 class="font-display font-extrabold text-2xl sm:text-3xl lg:text-4xl text-ink uppercase ns-heading-accent">
+                        О нас
+                    </h2>
+                    <div class="ns-quote-bar space-y-3.5 text-sm sm:text-[15px] text-muted leading-relaxed pt-1">
+                        <p class="font-semibold text-ink">
+                            NS Company — рекламно-производственная компания полного цикла.
+                        </p>
+                        <p>
+                            С 2012 года мы создаем эффективные рекламные решения для бизнеса, государственных организаций и коммерческих объектов по всему Казахстану.
+                        </p>
+                        <p>
+                            Мы объединяем дизайн, производство, печать, изготовление конструкций, монтаж и реализацию проектов любой сложности в одной компании.
+                        </p>
+                        <p>
+                            Собственное производство, современное оборудование и команда специалистов позволяют нам контролировать качество на каждом этапе работы и выполнять проекты в сжатые сроки.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Правая часть: Фрейм для фото команды NS Company у производственного ангара -->
+                <div class="lg:col-span-6">
+                    <div class="bg-alabaster rounded-xl border border-line p-3 sm:p-4">
+                        <div class="relative rounded-lg overflow-hidden aspect-[16/10] bg-slateDark">
+                            <img src="images/team-ns.jpg"
+                                 onerror="this.src='https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80'"
+                                 alt="Команда NS Company на фоне производственного цеха в Астане"
+                                 class="w-full h-full object-cover">
+                            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/90 via-ink/50 to-transparent p-4 sm:p-5 text-white flex items-end justify-between gap-4">
+                                <div>
+                                    <span class="block font-display font-bold text-sm sm:text-base">Команда NS Company • Астана</span>
+                                    <span class="block text-xs text-slate-300 mt-0.5">Собственный производственный комплекс (ул. Алпамыс батыр, 42)</span>
+                                </div>
+                                <a href="https://www.instagram.com/ns_company_astana/" target="_blank" rel="noopener noreferrer" class="shrink-0 text-xs font-semibold bg-white/15 hover:bg-white/25 px-3 py-1.5 rounded transition">
+                                    @ns_company_astana
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5-колоночная линейка показателей в точности как внизу слайда «О нас» -->
+            <div class="bg-alabaster rounded-xl border border-line p-6 sm:p-8 reveal delay-1">
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 lg:gap-0 lg:divide-x lg:divide-line">
+                    
+                    <div class="lg:px-5 first:lg:pl-0">
+                        <svg class="w-6 h-6 text-ink mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                        <div class="font-display font-extrabold text-2xl sm:text-3xl text-ink">
+                            <span class="count-up" data-target="12">12</span>+ лет
+                        </div>
+                        <p class="text-xs text-muted mt-1 leading-snug">на рекламном рынке (работаем с 2012 года)</p>
+                    </div>
+
+                    <div class="lg:px-5">
+                        <svg class="w-6 h-6 text-ink mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                        <div class="font-display font-extrabold text-2xl sm:text-3xl text-brand-blue">
+                            <span class="count-up" data-target="5500">5500</span>+
+                        </div>
+                        <p class="text-xs text-muted mt-1 leading-snug">реализованных проектов по всему Казахстану</p>
+                    </div>
+
+                    <div class="lg:px-5">
+                        <svg class="w-6 h-6 text-ink mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        <div class="font-display font-extrabold text-2xl sm:text-3xl text-ink">
+                            <span class="count-up" data-target="30">30</span>+
+                        </div>
+                        <p class="text-xs text-muted mt-1 leading-snug">профильных сотрудников в штате компании</p>
+                    </div>
+
+                    <div class="lg:px-5">
+                        <svg class="w-6 h-6 text-ink mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                        <div class="font-display font-extrabold text-2xl sm:text-3xl text-ink">
+                            <span class="count-up" data-target="1000">1000</span>+ м²
+                        </div>
+                        <p class="text-xs text-muted mt-1 leading-snug">собственных производственных площадей</p>
+                    </div>
+
+                    <div class="col-span-2 sm:col-span-1 lg:pl-5">
+                        <svg class="w-6 h-6 text-ink mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        <div class="font-display font-extrabold text-2xl sm:text-3xl text-ink">
+                            <span class="count-up" data-target="75">75</span> единиц
+                        </div>
+                        <p class="text-xs text-muted mt-1 leading-snug">современного печатного и фрезерного оборудования</p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- =====================================================================
+         РАЗДЕЛ 02 — НАШИ НАПРАВЛЕНИЯ (АВТО-СЛАЙДЕР С РУЧНЫМ УПРАВЛЕНИЕМ)
+         ===================================================================== -->
+    <section id="directions" class="py-16 lg:py-24 bg-alabaster border-b border-line relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Заголовок, индикатор автопрокрутки и кнопки управления -->
+            <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8 reveal">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-widest text-brand-blue">02 / Компетенции цеха</span>
+                    <h2 class="font-display font-extrabold text-2xl sm:text-3xl lg:text-4xl text-ink uppercase mt-1.5 ns-heading-accent">
+                        Наши направления
+                    </h2>
+                </div>
+
+                <div class="flex flex-wrap items-center gap-2.5 self-start lg:self-end">
+                    <span id="dir-counter" class="text-xs font-semibold text-muted mr-1">1 — 2 из 9</span>
+                    <button id="dir-prev" type="button" onclick="manualMoveDirSlider(-1)" class="w-10 h-10 rounded-lg border border-line bg-white hover:bg-brand-blue hover:text-white hover:border-brand-blue text-ink flex items-center justify-center transition cursor-pointer" aria-label="Предыдущие направления">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                    </button>
+                    <button id="dir-next" type="button" onclick="manualMoveDirSlider(1)" class="w-10 h-10 rounded-lg border border-line bg-white hover:bg-brand-blue hover:text-white hover:border-brand-blue text-ink flex items-center justify-center transition cursor-pointer" aria-label="Следующие направления">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Вкладки фильтрации по кластерам -->
+            <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-2 mb-5 reveal delay-1">
+                <button type="button" onclick="filterDirections('all')" data-cat="all" class="dir-tab px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold bg-brand-blue text-white border border-brand-blue transition whitespace-nowrap cursor-pointer">
+                    Все направления (9)
+                </button>
+                <button type="button" onclick="filterDirections('outdoor')" data-cat="outdoor" class="dir-tab px-4 py-2 rounded-lg text-xs sm:text-sm font-medium bg-white text-muted hover:text-ink border border-line transition whitespace-nowrap cursor-pointer">
+                    Наружная и интерьерная реклама
+                </button>
+                <button type="button" onclick="filterDirections('expo')" data-cat="expo" class="dir-tab px-4 py-2 rounded-lg text-xs sm:text-sm font-medium bg-white text-muted hover:text-ink border border-line transition whitespace-nowrap cursor-pointer">
+                    Выставки и мероприятия
+                </button>
+                <button type="button" onclick="filterDirections('print')" data-cat="print" class="dir-tab px-4 py-2 rounded-lg text-xs sm:text-sm font-medium bg-white text-muted hover:text-ink border border-line transition whitespace-nowrap cursor-pointer">
+                    Полиграфия и брендирование
+                </button>
+            </div>
+
+            <!-- Прогресс-бар слайдера и таймер автопрокрутки -->
+            <div class="w-full h-0.5 bg-line rounded-full overflow-hidden mb-7">
+                <div id="dir-progress-bar" class="h-full bg-brand-blue transition-all duration-300" style="width: 22.2%"></div>
+            </div>
+
+            <!-- Горизонтальный слайдер направлений (пауза при наведении мыши) -->
+            <div class="overflow-hidden" id="dir-slider-viewport">
+                <div class="slider-track gap-6" id="dir-slider-track">
+                    <!-- Карточки рендерятся из массива directionsData -->
+                </div>
+            </div>
+
+            <!-- Точки-индикаторы для быстрого перехода к любому слайду -->
+            <div class="flex items-center justify-between gap-4 mt-6">
+                <div id="dir-dots" class="flex flex-wrap items-center gap-2"></div>
+                <span class="hidden sm:inline text-xs text-muted">Наведите курсор на карточку, чтобы поставить слайдер на паузу</span>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- =====================================================================
+         РАЗДЕЛ 03 — ПОРТФОЛИО РЕАЛИЗОВАННЫХ ПРОЕКТОВ (СЛАЙДЕР С ФИЛЬТРАМИ)
+         ===================================================================== -->
+    <section id="projects" class="py-16 lg:py-24 bg-white border-b border-line">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8 reveal">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-widest text-brand-blue">03 / Портфолио объектов</span>
+                    <h2 class="font-display font-extrabold text-2xl sm:text-3xl lg:text-4xl text-ink uppercase mt-1.5 ns-heading-accent">
+                        Реализованные проекты
+                    </h2>
+                </div>
+
+                <div class="flex items-center gap-3 self-start lg:self-end">
+                    <span id="case-counter" class="text-xs font-semibold text-muted mr-1">1 — 2 из 6</span>
+                    <button id="case-prev" type="button" onclick="moveCaseSlider(-1)" class="w-10 h-10 rounded-lg border border-line bg-alabaster hover:bg-brand-blue hover:text-white hover:border-brand-blue text-ink flex items-center justify-center transition cursor-pointer disabled:opacity-35" aria-label="Предыдущий проект">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                    </button>
+                    <button id="case-next" type="button" onclick="moveCaseSlider(1)" class="w-10 h-10 rounded-lg border border-line bg-alabaster hover:bg-brand-blue hover:text-white hover:border-brand-blue text-ink flex items-center justify-center transition cursor-pointer disabled:opacity-35" aria-label="Следующий проект">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Фильтры портфолио -->
+            <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-2 mb-6 reveal delay-1">
+                <button type="button" onclick="filterCases('all')" data-case-cat="all" class="case-tab px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold bg-brand-blue text-white border border-brand-blue transition whitespace-nowrap cursor-pointer">
+                    Все проекты (6)
+                </button>
+                <button type="button" onclick="filterCases('events')" data-case-cat="events" class="case-tab px-4 py-2 rounded-lg text-xs sm:text-sm font-medium bg-alabaster text-muted hover:text-ink border border-line transition whitespace-nowrap cursor-pointer">
+                    Мероприятия и выставки
+                </button>
+                <button type="button" onclick="filterCases('signage')" data-case-cat="signage" class="case-tab px-4 py-2 rounded-lg text-xs sm:text-sm font-medium bg-alabaster text-muted hover:text-ink border border-line transition whitespace-nowrap cursor-pointer">
+                    Вывески и интерьеры
+                </button>
+                <button type="button" onclick="filterCases('merch')" data-case-cat="merch" class="case-tab px-4 py-2 rounded-lg text-xs sm:text-sm font-medium bg-alabaster text-muted hover:text-ink border border-line transition whitespace-nowrap cursor-pointer">
+                    Полиграфия и мерч
+                </button>
+            </div>
+
+            <!-- Прогресс-бар портфолио -->
+            <div class="w-full h-0.5 bg-line rounded-full overflow-hidden mb-7">
+                <div id="case-progress-bar" class="h-full bg-brand-blue transition-all duration-300" style="width: 33.3%"></div>
+            </div>
+
+            <!-- Горизонтальный слайдер кейсов -->
+            <div class="overflow-hidden" id="case-slider-viewport">
+                <div class="slider-track gap-6" id="case-slider-track">
+                    <!-- Карточки кейсов рендерятся из массива casesData -->
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- =====================================================================
+         РАЗДЕЛ 04 — ИСТОРИЯ КОМПАНИИ В КАДРАХ (ИНТЕРАКТИВНЫЙ ТАЙМЛАЙН-СЛАЙДЕР)
+         ===================================================================== -->
+    <section id="history" class="py-16 lg:py-24 bg-alabaster border-b border-line relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 reveal">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-widest text-brand-blue">04 / Путь развития</span>
+                    <h2 class="font-display font-extrabold text-2xl sm:text-3xl lg:text-4xl text-ink uppercase mt-1.5 ns-heading-accent">
+                        История компании в кадрах
+                    </h2>
+                </div>
+                <p class="text-xs sm:text-sm text-muted max-w-md">
+                    От основания производственной базы в Астане и первых публикаций в <span class="font-semibold text-ink">@ns_company_astana</span> до 5500+ реализованных проектов по всему Казахстану.
+                </p>
+            </div>
+
+            <!-- Интерактивная шкала времени (4 вехи) -->
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-6 reveal delay-1" id="timeline-tabs">
+                <button type="button" onclick="setTimelineStep(0)" data-step="0" class="tl-tab text-left p-4 rounded-xl border transition cursor-pointer bg-ink text-white border-ink">
+                    <span class="block text-[11px] font-bold uppercase tracking-wider text-brand-ochre">Веха 01</span>
+                    <span class="block font-display font-extrabold text-lg sm:text-xl mt-0.5">2012–2014</span>
+                    <span class="block text-xs text-slate-300 mt-1 line-clamp-1">Основание производства</span>
+                </button>
+
+                <button type="button" onclick="setTimelineStep(1)" data-step="1" class="tl-tab text-left p-4 rounded-xl border transition cursor-pointer bg-white text-ink border-line hover:border-brand-blue">
+                    <span class="block text-[11px] font-bold uppercase tracking-wider text-brand-blue">Веха 02</span>
+                    <span class="block font-display font-extrabold text-lg sm:text-xl mt-0.5">2017 год</span>
+                    <span class="block text-xs text-muted mt-1 line-clamp-1">Первый пост в Instagram</span>
+                </button>
+
+                <button type="button" onclick="setTimelineStep(2)" data-step="2" class="tl-tab text-left p-4 rounded-xl border transition cursor-pointer bg-white text-ink border-line hover:border-brand-blue">
+                    <span class="block text-[11px] font-bold uppercase tracking-wider text-brand-blue">Веха 03</span>
+                    <span class="block font-display font-extrabold text-lg sm:text-xl mt-0.5">2020–2022</span>
+                    <span class="block text-xs text-muted mt-1 line-clamp-1">Цех 1000+ м² и 75 станков</span>
+                </button>
+
+                <button type="button" onclick="setTimelineStep(3)" data-step="3" class="tl-tab text-left p-4 rounded-xl border transition cursor-pointer bg-white text-ink border-line hover:border-brand-blue">
+                    <span class="block text-[11px] font-bold uppercase tracking-wider text-brand-blue">Веха 04</span>
+                    <span class="block font-display font-extrabold text-lg sm:text-xl mt-0.5">2024–2026</span>
+                    <span class="block text-xs text-muted mt-1 line-clamp-1">5500+ проектов по всему РК</span>
+                </button>
+            </div>
+
+            <!-- Разворот выбранного этапа хронологии -->
+            <div class="bg-white rounded-xl border border-line p-6 sm:p-8 lg:p-10 grid lg:grid-cols-12 gap-8 items-center reveal delay-2" id="timeline-card">
+                <!-- Левая колонка: Визуальный кадр / архивный пост -->
+                <div class="lg:col-span-5">
+                    <div class="bg-alabaster rounded-xl border border-line p-3">
+                        <div class="relative rounded-lg overflow-hidden aspect-[4/3] bg-slateDark">
+                            <img id="tl-image" src="images/history-2012.jpg"
+                                 onerror="this.src='https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1000&q=80'"
+                                 alt="Этап развития NS Company"
+                                 class="w-full h-full object-cover transition-opacity duration-300">
+                            <div class="absolute top-3 left-3 bg-white/95 text-ink text-[11px] font-bold px-2.5 py-1 rounded shadow-2xs" id="tl-badge">
+                                Архив NS Company • Астана
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Правая колонка: Описание вехи -->
+                <div class="lg:col-span-7 space-y-4">
+                    <div class="flex items-center justify-between">
+                        <span id="tl-period" class="text-xs font-bold uppercase tracking-widest text-brand-blue">2012–2014 • Старт компании</span>
+                        <div class="flex items-center gap-1.5">
+                            <button type="button" onclick="prevTimelineStep()" class="p-2 rounded-lg border border-line hover:bg-alabaster text-ink transition cursor-pointer" aria-label="Предыдущая веха">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                            </button>
+                            <button type="button" onclick="nextTimelineStep()" class="p-2 rounded-lg border border-line hover:bg-alabaster text-ink transition cursor-pointer" aria-label="Следующая веха">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <h3 id="tl-title" class="font-display font-extrabold text-xl sm:text-2xl text-ink">
+                        Основание производства и формирование инженерной базы в Астане
+                    </h3>
+
+                    <p id="tl-desc" class="ns-quote-bar text-sm sm:text-base text-muted leading-relaxed">
+                        Старт рекламно-производственной деятельности в столице. Формирование первого печатного и макетного участка, отработка технологий изготовления наружных вывесок и деловой полиграфии для локального бизнеса.
+                    </p>
+
+                    <div id="tl-metrics" class="pt-3 flex flex-wrap gap-2">
+                        <span class="text-xs font-semibold bg-alabaster border border-line px-3 py-1.5 rounded-md text-ink">Собственный цех в Астане</span>
+                        <span class="text-xs font-semibold bg-alabaster border border-line px-3 py-1.5 rounded-md text-ink">Первые корпоративные клиенты</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================================
+         РАЗДЕЛ 05 — ПОЧЕМУ ВЫБИРАЮТ НАС (ТОЧНЫЙ ДИЗАЙН И ТЕКСТЫ ТЕМНОГО СЛАЙДА NS)
+         ===================================================================== -->
+    <section id="advantages" class="py-16 lg:py-24 bg-slateDark text-white border-b border-slate-800 relative overflow-hidden">
+        <!-- Фоновая технологическая текстура широкоформатной печати -->
+        <div class="absolute inset-0 opacity-10 pointer-events-none">
+            <img src="https://images.unsplash.com/photo-1562564055-71e051d33c19?auto=format&fit=crop&w=1600&q=80" alt="" class="w-full h-full object-cover">
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-10 items-start">
+                
+                <!-- Левая колонка: Заголовок как на их фирменном слайде -->
+                <div class="lg:col-span-5 space-y-5 reveal">
+                    <span class="text-xs font-bold uppercase tracking-widest text-brand-ochre">05 / Принципы работы</span>
+                    <h2 class="font-display font-extrabold text-3xl sm:text-4xl uppercase leading-tight ns-heading-accent ns-heading-accent-light">
+                        Почему <span class="text-brand-ochre block">выбирают нас</span>
+                    </h2>
+                    <p class="font-display font-bold text-sm sm:text-base uppercase tracking-wide text-slate-200 leading-relaxed pt-2">
+                        Комплексные решения для бизнеса и мероприятий любой сложности
+                    </p>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        Работаем напрямую как завод-изготовитель по адресу ул. Алпамыс батыр, 42. Отвечаем за точное попадание в брендбук, инженерную надежность конструкций и соблюдение дедлайнов форумов и открытий.
+                    </p>
+                    <div class="pt-2">
+                        <a href="#configurator" class="inline-flex items-center gap-2 bg-brand-ochre hover:bg-brand-ochreDark text-white font-semibold text-sm px-5 py-3 rounded-lg transition">
+                            <span>Запросить коммерческое предложение</span>
+                            <span>→</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Правая колонка: 5 нумерованных плашек (1–5) с янтарным акцентом -->
+                <div class="lg:col-span-7 space-y-3.5 reveal delay-1">
+                    
+                    <div class="bg-white text-ink rounded-xl overflow-hidden flex items-stretch shadow-sm">
+                        <div class="w-16 sm:w-20 bg-brand-ochre text-white font-display font-extrabold text-2xl sm:text-3xl flex items-center justify-center shrink-0">
+                            1
+                        </div>
+                        <div class="p-4 sm:p-5">
+                            <h3 class="font-display font-extrabold text-sm sm:text-base uppercase text-brand-ochreDark">Собственное производство</h3>
+                            <p class="text-xs sm:text-sm text-muted mt-1 leading-relaxed">
+                                Полный цикл работ без посредников: проектирование, изготовление, печать, покраска, монтаж и обслуживание.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white text-ink rounded-xl overflow-hidden flex items-stretch shadow-sm">
+                        <div class="w-16 sm:w-20 bg-brand-ochre text-white font-display font-extrabold text-2xl sm:text-3xl flex items-center justify-center shrink-0">
+                            2
+                        </div>
+                        <div class="p-4 sm:p-5">
+                            <h3 class="font-display font-extrabold text-sm sm:text-base uppercase text-brand-ochreDark">Комплексные решения под ключ</h3>
+                            <p class="text-xs sm:text-sm text-muted mt-1 leading-relaxed">
+                                От разработки дизайна до реализации проекта любой сложности — берем на себя все этапы работ.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white text-ink rounded-xl overflow-hidden flex items-stretch shadow-sm">
+                        <div class="w-16 sm:w-20 bg-brand-ochre text-white font-display font-extrabold text-2xl sm:text-3xl flex items-center justify-center shrink-0">
+                            3
+                        </div>
+                        <div class="p-4 sm:p-5">
+                            <h3 class="font-display font-extrabold text-sm sm:text-base uppercase text-brand-ochreDark">Более 10 направлений услуг</h3>
+                            <p class="text-xs sm:text-sm text-muted mt-1 leading-relaxed">
+                                Наружная реклама, благоустройство городской среды, выставочные стенды, оформление мероприятий, полиграфия, навигация, брендирование и многое другое.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white text-ink rounded-xl overflow-hidden flex items-stretch shadow-sm">
+                        <div class="w-16 sm:w-20 bg-brand-ochre text-white font-display font-extrabold text-2xl sm:text-3xl flex items-center justify-center shrink-0">
+                            4
+                        </div>
+                        <div class="p-4 sm:p-5">
+                            <h3 class="font-display font-extrabold text-sm sm:text-base uppercase text-brand-ochreDark">Соблюдение сроков и контроль качества</h3>
+                            <p class="text-xs sm:text-sm text-muted mt-1 leading-relaxed">
+                                Четкое планирование производства и профессиональная команда позволяют выполнять проекты вовремя и без компромиссов по качеству.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white text-ink rounded-xl overflow-hidden flex items-stretch shadow-sm">
+                        <div class="w-16 sm:w-20 bg-brand-ochre text-white font-display font-extrabold text-2xl sm:text-3xl flex items-center justify-center shrink-0">
+                            5
+                        </div>
+                        <div class="p-4 sm:p-5">
+                            <h3 class="font-display font-extrabold text-sm sm:text-base uppercase text-brand-ochreDark">Индивидуальный подход</h3>
+                            <p class="text-xs sm:text-sm text-muted mt-1 leading-relaxed">
+                                Создаем уникальные решения, которые помогают бизнесу выделяться и делают мероприятия запоминающимися.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================================
+         РАЗДЕЛ 06 — ИНТЕРАКТИВНЫЙ 3-ШАГОВЫЙ КОНФИГУРАТОР СМЕТЫ В WHATSAPP
+         ===================================================================== -->
+    <section id="configurator" class="py-16 lg:py-24 bg-white border-b border-line">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-2xl mb-10 reveal">
+                <span class="text-xs font-bold uppercase tracking-widest text-brand-blue">06 / Расчет стоимости</span>
+                <h2 class="font-display font-extrabold text-2xl sm:text-3xl lg:text-4xl text-ink uppercase mt-1.5 ns-heading-accent">
+                    Собрать заявку в WhatsApp за 3 шага
+                </h2>
+                <p class="text-sm sm:text-base text-muted mt-3">
+                    Выберите направление, состояние макета и удобный способ оплаты (включая рассрочку от Kaspi.kz) — система подготовит структурированное ТЗ для менеджера NS Company.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-8 items-start reveal delay-1">
+                
+                <!-- Левая колонка: 3 шага выбора -->
+                <div class="lg:col-span-7 bg-alabaster rounded-xl border border-line p-6 sm:p-8 space-y-7">
+                    
+                    <!-- Шаг 1 -->
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-xs font-bold uppercase tracking-wider text-brand-blue">Шаг 1. Выберите направление</span>
+                            <span class="text-xs text-muted">9 направлений</span>
+                        </div>
+                        <div class="flex flex-wrap gap-2" id="cfg-service-chips"></div>
+                    </div>
+
+                    <!-- Шаг 2 -->
+                    <div class="pt-5 border-t border-line">
+                        <span class="block text-xs font-bold uppercase tracking-wider text-brand-blue mb-3">Шаг 2. Макет и выезд на объект</span>
+                        <div class="grid sm:grid-cols-3 gap-2.5">
+                            <button type="button" onclick="setCfgDesign('Есть готовый макет')" data-val="Есть готовый макет" class="cfg-design-btn p-3 rounded-lg border text-left text-xs sm:text-sm font-semibold transition cursor-pointer bg-brand-blue text-white border-brand-blue">
+                                Есть готовый макет
+                            </button>
+                            <button type="button" onclick="setCfgDesign('Нужен дизайн и 3D-визуализация')" data-val="Нужен дизайн и 3D-визуализация" class="cfg-design-btn p-3 rounded-lg border text-left text-xs sm:text-sm font-medium transition cursor-pointer bg-white text-ink border-line hover:border-brand-blue">
+                                Нужен дизайн и 3D-привязка
+                            </button>
+                            <button type="button" onclick="setCfgDesign('Требуется выезд замерщика в Астане')" data-val="Требуется выезд замерщика в Астане" class="cfg-design-btn p-3 rounded-lg border text-left text-xs sm:text-sm font-medium transition cursor-pointer bg-white text-ink border-line hover:border-brand-blue">
+                                Требуется выезд замерщика
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Шаг 3 -->
+                    <div class="pt-5 border-t border-line space-y-4">
+                        <span class="block text-xs font-bold uppercase tracking-wider text-brand-blue">Шаг 3. Сроки и условия оплаты</span>
+                        <div class="grid sm:grid-cols-3 gap-2.5">
+                            <button type="button" onclick="setCfgUrgency('Стандартные сроки')" data-urg="Стандартные сроки" class="cfg-urg-btn p-3 rounded-lg border text-left text-xs sm:text-sm font-semibold transition cursor-pointer bg-brand-blue text-white border-brand-blue">
+                                Стандартные сроки
+                            </button>
+                            <button type="button" onclick="setCfgUrgency('Срочное изготовление')" data-urg="Срочное изготовление" class="cfg-urg-btn p-3 rounded-lg border text-left text-xs sm:text-sm font-medium transition cursor-pointer bg-white text-ink border-line hover:border-brand-blue">
+                                Срочное изготовление
+                            </button>
+                            <button type="button" onclick="setCfgUrgency('Оплата в рассрочку через Kaspi.kz')" data-urg="Оплата в рассрочку через Kaspi.kz" class="cfg-urg-btn p-3 rounded-lg border text-left text-xs sm:text-sm font-medium transition cursor-pointer bg-white text-ink border-line hover:border-brand-blue">
+                                Рассрочка от Kaspi.kz
+                            </button>
+                        </div>
+
+                        <div>
+                            <label for="cfg-comment" class="block text-xs font-medium text-muted mb-1.5">Размеры, тираж или комментарий по задаче (необязательно)</label>
+                            <textarea id="cfg-comment" rows="3" oninput="updateWhatsAppPreview()" placeholder="Например: световая вывеска 3500×700 мм на фасад, либо 300 блокнотов и ручек с UV-печатью для конференции..." class="w-full rounded-lg border border-line bg-white px-4 py-3 text-sm text-ink placeholder-slate-400 focus:outline-none focus:border-brand-blue transition"></textarea>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Правая колонка: Предпросмотр заявки -->
+                <div class="lg:col-span-5 bg-alabaster rounded-xl border border-line p-6 sm:p-8 flex flex-col justify-between space-y-6">
+                    <div>
+                        <div class="flex items-center justify-between pb-3 border-b border-line">
+                            <span class="text-xs font-bold uppercase tracking-wider text-ink">Сформированное ТЗ</span>
+                            <span class="text-xs text-muted">Прямая отправка</span>
+                        </div>
+                        <div id="cfg-preview-text" class="mt-4 p-4 rounded-lg bg-white border border-line text-xs sm:text-sm text-ink leading-relaxed whitespace-pre-line"></div>
+                    </div>
+
+                    <div class="space-y-2.5">
+                        <a id="cfg-wa-link" href="#" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 px-5 rounded-lg bg-brand-wa hover:bg-brand-waHover text-white font-semibold text-sm transition flex items-center justify-center gap-2">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/></svg>
+                            <span>Отправить заявку в WhatsApp</span>
+                        </a>
+                        <button type="button" onclick="copyBriefText()" class="w-full py-2.5 px-4 rounded-lg bg-white border border-line hover:border-brand-blue text-xs font-semibold text-muted hover:text-ink transition cursor-pointer">
+                            Скопировать текст заявки
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Сворачиваемая памятка препресса -->
+            <div class="mt-8 bg-alabaster rounded-xl border border-line overflow-hidden reveal delay-2">
+                <button type="button" onclick="togglePrepress()" class="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-brand-tint/60 transition cursor-pointer">
+                    <div class="flex items-center gap-3">
+                        <span class="w-2 h-2 rounded-full bg-brand-blue"></span>
+                        <span class="font-display font-bold text-xs sm:text-sm uppercase text-ink">Технические требования к макетам (Препресс)</span>
+                    </div>
+                    <span id="prepress-icon" class="text-xs font-semibold text-brand-blue">Развернуть +</span>
+                </button>
+                <div id="prepress-panel" class="hidden px-6 pb-6 pt-2 border-t border-line">
+                    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs sm:text-sm">
+                        <div class="p-3.5 rounded-lg bg-white border border-line">
+                            <span class="block font-semibold text-ink">Форматы файлов</span>
+                            <span class="text-muted mt-1 block">PDF (PDF/X-1a), CDR (до 20 версии), AI, EPS. Все шрифты переведены в кривые.</span>
+                        </div>
+                        <div class="p-3.5 rounded-lg bg-white border border-line">
+                            <span class="block font-semibold text-ink">Цветовая модель</span>
+                            <span class="text-muted mt-1 block">CMYK (профиль Coated FOGRA39). Для фрезеровки и плоттера — замкнутые векторные контуры.</span>
+                        </div>
+                        <div class="p-3.5 rounded-lg bg-white border border-line">
+                            <span class="block font-semibold text-ink">Разрешение растра</span>
+                            <span class="text-muted mt-1 block">Полиграфия и стикеры: 300 dpi (1:1). Широкоформатная печать и баннеры: 150 dpi (1:1).</span>
+                        </div>
+                        <div class="p-3.5 rounded-lg bg-white border border-line">
+                            <span class="block font-semibold text-ink">Вылеты под обрез</span>
+                            <span class="text-muted mt-1 block">По 3 мм с каждой стороны для листовой продукции, по 5 мм для каталогов и брошюр.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- =====================================================================
+         РАЗДЕЛ 07 — КОНТАКТЫ И АДРЕС В АСТАНЕ (ПР. ЖЕНИС, 75/2)
+         ===================================================================== -->
+    <footer id="contacts" class="bg-alabaster pt-16 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-8 pb-12 border-b border-line items-stretch">
+                
+                <!-- Левая колонка: Реквизиты из Instagram -->
+                <div class="lg:col-span-5 bg-white rounded-xl border border-line p-6 sm:p-8 flex flex-col justify-between space-y-6">
+                    <div class="space-y-4">
+                        <span class="text-xs font-bold uppercase tracking-widest text-brand-blue">07 / Контакты</span>
+                        <h2 class="font-display font-extrabold text-2xl text-ink uppercase ns-heading-accent">NS Company — Астана</h2>
+                        <p class="text-sm text-muted leading-relaxed pt-1">
+                            Собственное производство и офис приема заказов в Астане. Работаем с коммерческими компаниями и государственными организациями по всему Казахстану.
+                        </p>
+
+                        <div class="space-y-3 pt-2 text-sm">
+                            <div class="flex items-start justify-between py-2 border-b border-line gap-4">
+                                <span class="text-muted">Адрес в Астане</span>
+                                <span class="font-bold text-ink text-right">г. Астана, ул. Алпамыс батыр, 42</span>
+                            </div>
+                            <div class="flex items-start justify-between py-2 border-b border-line gap-4">
+                                <span class="text-muted">График работы</span>
+                                <span class="font-semibold text-ink text-right">Пн–Пт: 09:00 – 18:00</span>
+                            </div>
+                            <div class="flex items-start justify-between py-2 border-b border-line gap-4">
+                                <span class="text-muted">Оплата</span>
+                                <span class="font-semibold text-ink text-right">Безналичный расчет / Kaspi.kz</span>
+                            </div>
+                            <div class="flex items-start justify-between py-2 border-b border-line gap-4">
+                                <span class="text-muted">Instagram</span>
+                                <a href="https://www.instagram.com/ns_company_astana/" target="_blank" rel="noopener noreferrer" class="font-semibold text-brand-blue hover:underline">@ns_company_astana ↗</a>
+                            </div>
+                            <div class="flex items-start justify-between py-2 gap-4">
+                                <span class="text-muted">Карточка 2ГИС</span>
+                                <a href="https://2gis.kz/astana/search/NS%20Company%20%D1%80%D0%B5%D0%BA%D0%BB%D0%B0%D0%BC%D0%BD%D0%BE-%D0%BF%D1%80%D0%BE%D0%B8%D0%B7%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D0%B0%D1%8F%20%D0%BA%D0%BE%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D1%8F" target="_blank" rel="noopener noreferrer" class="font-semibold text-brand-blue hover:underline">Смотреть отзывы и маршрут ↗</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-2">
+                        <a href="#configurator" class="w-full py-3 px-4 rounded-lg bg-brand-blue hover:bg-brand-blueDark text-white text-sm font-semibold transition flex items-center justify-center">
+                            Рассчитать заказ в WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Правая колонка: Карта Астаны и пин пр. Женис, 75/2 -->
+                <div class="lg:col-span-7 bg-white rounded-xl border border-line overflow-hidden relative min-h-[310px] flex flex-col justify-between p-6 sm:p-8 ns-arch-grid">
+                    <svg class="absolute inset-0 w-full h-full pointer-events-none opacity-45" viewBox="0 0 800 400" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                        <path d="M-20 260 Q 240 240, 420 190 T 830 130" stroke="#CBD5E1" stroke-width="10"/>
+                        <path d="M230 -10 L 290 410" stroke="#94A3B8" stroke-width="8"/>
+                        <path d="M520 -10 L 470 410" stroke="#CBD5E1" stroke-width="6"/>
+                        <path d="M-10 110 L 810 290" stroke="#E2E8F0" stroke-width="4"/>
+                    </svg>
+
+                    <div class="relative z-10 flex flex-wrap items-center justify-between gap-2">
+                        <span class="bg-white border border-line px-3 py-1.5 rounded-lg text-xs font-semibold text-ink">
+                            г. Астана • улица Алпамыс батыр, 42
+                        </span>
+                        <span class="bg-emerald-50 border border-emerald-200 text-emerald-800 px-3 py-1.5 rounded-lg text-xs font-semibold">
+                            2ГИС • Высокий рейтинг клиентов
+                        </span>
+                    </div>
+
+                    <div class="relative z-10 my-auto mx-auto max-w-sm w-full bg-white rounded-xl border border-line p-5 shadow-sm">
+                        <div class="flex items-center gap-3">
+                            <div class="w-11 h-11 rounded-lg bg-ink text-white font-display font-extrabold text-sm flex items-center justify-center shrink-0">
+                                NS
+                            </div>
+                            <div>
+                                <div class="font-display font-extrabold text-base text-ink">NS Company</div>
+                                <div class="text-xs text-muted">ул. Алпамыс батыр, 42 • Офис и производство</div>
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-line flex items-center justify-between">
+                            <span class="text-xs text-muted">Построить маршрут в навигаторе</span>
+                            <a href="https://2gis.kz/astana/search/NS%20Company%20%D0%90%D0%BB%D0%BF%D0%B0%D0%BC%D1%8B%D1%81%20%D0%B1%D0%B0%D1%82%D1%8B%D1%80%2042" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-brand-blue hover:underline">
+                                Открыть 2ГИС →
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="relative z-10 text-[11px] text-muted">
+                        * При переносе на ваш домен сюда встраивается живой интерактивный виджет карты 2ГИС с меткой ул. Алпамыс батыр, 42.
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted">
+                <span>© 2012–2026 NS Company. Рекламно-производственная компания полного цикла (г. Астана, ул. Алпамыс батыр, 42).</span>
+                <span>Демонстрационный прототип корпоративного сайта</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- =====================================================================
+         МОДАЛЬНОЕ ОКНО С ПРЕДЛОЖЕНИЕМ РАЗРАБОТЧИКА ДЛЯ NS COMPANY
+         ===================================================================== -->
+    <div id="pitch-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-900/55 backdrop-blur-xs p-4">
+        <div class="bg-white rounded-xl max-w-lg w-full p-6 sm:p-8 border border-line shadow-xl relative">
+            <button type="button" onclick="togglePitchModal(false)" aria-label="Закрыть" class="absolute top-5 right-5 text-slate-400 hover:text-ink p-1 cursor-pointer">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+
+            <span class="text-xs font-bold uppercase tracking-wider text-brand-blue">Коммерческое предложение для NS Company</span>
+            <h3 class="font-display font-extrabold text-xl sm:text-2xl text-ink mt-1">
+                Как этот сайт вернет поток заявок из 2ГИС и Google
+            </h3>
+
+            <div class="mt-4 space-y-3 text-sm text-muted leading-relaxed">
+                <p>
+                    Сейчас ссылка из вашей карточки <strong>2ГИС</strong> ведет на неоплаченную заглушку Tilda, а в поиске <strong>Google</strong> отображается техническая панель Plesk. Потенциальные B2B-клиенты в Астане, которые ищут типографию или наружную рекламу через поиск, не могут открыть ваш сайт и уходят к конкурентам.
+                </p>
+                <div class="p-4 rounded-lg bg-alabaster border border-line text-ink">
+                    <strong class="block text-brand-blue mb-1">Релевантный опыт в вашей сфере:</strong>
+                    <p class="text-xs sm:text-sm text-muted">
+                        Я уже разрабатывал сайт-визитку для крупной типографической компании с <strong>14-летним опытом на рынке</strong> — проект полностью закрыл их задачи по приему заказов, получил высокую оценку руководства и стабильно привлекает клиентов из поиска.
+                    </p>
+                </div>
+                <p class="text-xs text-muted">
+                    Этот прототип уже собран на основе вашего фирменного стиля, услуг (включая UV/DTF-печать, вывески и стенды) и реальных кейсов. Остается привязать ваш рабочий номер WhatsApp и подключить домен.
+                </p>
+            </div>
+
+            <div class="mt-6 flex flex-col sm:flex-row gap-2.5">
+                <button type="button" onclick="togglePitchModal(false)" class="w-full py-3 px-4 rounded-lg bg-brand-blue hover:bg-brand-blueDark text-white font-semibold text-sm transition cursor-pointer">
+                    Вернуться к просмотру сайта
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="copy-toast" class="fixed bottom-5 right-5 z-50 hidden bg-ink text-white text-xs font-medium px-4 py-3 rounded-lg shadow-lg">
+        Текст заявки скопирован в буфер обмена
+    </div>
+
+    <!-- =====================================================================
+         JAVASCRIPT: ДАННЫЕ СЛАЙДОВ, СЛАЙДЕРЫ, ТАЙМЛАЙН И WHATSAPP-КОНФИГУРАТОР
+         ===================================================================== -->
+    <script>
+        // 1. Все 9 направлений NS Company с подлинными текстами и списками со слайдов презентации
+        const directionsData = [
+            {
+                num: '01',
+                cat: 'outdoor',
+                catLabel: 'Наружная реклама',
+                title: 'Наружная реклама',
+                lead: 'Эффективный способ привлечения внимания потенциальных клиентов и продвижения бренда на улицах города.',
+                bullets: [
+                    'Световые вывески',
+                    'Объемные буквы',
+                    'Лайтбоксы',
+                    'Крышные установки',
+                    'Стеллы',
+                    'Брендирование фасадов',
+                    'Оформление витрин',
+                    'Баннеры и навигация'
+                ],
+                examples: 'Примеры: Colab, MYSHAM, SPA-салон IMBIR, Doner na Highvill’e'
+            },
+            {
+                num: '02',
+                cat: 'expo',
+                catLabel: 'Выставки и форумы',
+                title: 'Оформление выставочных стендов',
+                lead: 'Создаем выставочные пространства, которые выделяют бренд среди конкурентов. Выполняем полный цикл работ под ключ.',
+                bullets: [
+                    '3D-проектирование стенда',
+                    'Производство конструкций в цехе',
+                    'Брендирование и световые логотипы',
+                    'Монтаж и демонтаж на площадке',
+                    'Техническое сопровождение выставки'
+                ],
+                examples: 'Примеры: Evident / ETS, Middle Corridor'
+            },
+            {
+                num: '03',
+                cat: 'outdoor',
+                catLabel: 'Городская среда',
+                title: 'Оформление и благоустройство города',
+                lead: 'Создание эстетичных и функциональных городских пространств, формирующих современный облик столицы.',
+                bullets: [
+                    'Городские арт-объекты',
+                    'Декоративные конструкции',
+                    'Уличная навигация и пилоны',
+                    'Элементы благоустройства',
+                    'Малые архитектурные формы'
+                ],
+                examples: 'Реализация для городских пространств и ТРЦ Астаны'
+            },
+            {
+                num: '04',
+                cat: 'expo',
+                catLabel: 'Мероприятия',
+                title: 'Оформление мероприятий',
+                lead: 'Создание уникального пространства, которое подчеркивает концепцию события и создает яркие впечатления для гостей.',
+                bullets: [
+                    'Стартово-финишные арки и сцены',
+                    'Пресс-воллы и бренд-воллы',
+                    'Фотозоны и ростовые фигуры',
+                    'Флаговая и площадная навигация',
+                    'Оформление форумов и церемоний'
+                ],
+                examples: 'Примеры: 5G Kcell RUN, Miss Astana 2024, MOOZ Кубок Столицы'
+            },
+            {
+                num: '05',
+                cat: 'outdoor',
+                catLabel: 'Офисы и ресепшн',
+                title: 'Оформление помещений',
+                lead: 'Создание комфортного и функционального пространства, которое отражает фирменный стиль компании.',
+                bullets: [
+                    'Интерьерные вывески',
+                    'Объемные логотипы с подсветкой',
+                    'Брендирование офисов и ресепшн',
+                    'Декоративные панели и графика',
+                    'Внутренняя навигация'
+                ],
+                examples: 'Примеры: Samruk-Kazyna, Orda Trade Astana, Алматон, Exeed'
+            },
+            {
+                num: '06',
+                cat: 'print',
+                catLabel: 'Печатный цех',
+                title: 'Услуги полиграфии',
+                lead: 'Качественная оперативная и тиражная печать для деловых коммуникаций, презентаций и мероприятий.',
+                bullets: [
+                    'Визитки, листовки, буклеты',
+                    'Брошюры, каталоги, меню',
+                    'Календари и блокноты на пружине',
+                    'Сертификаты и дипломы',
+                    'Наклейки, стикерпаки, плакаты',
+                    'Открытки и пригласительные'
+                ],
+                examples: 'Примеры: Univero, KompraConf 2024, Miss Astana'
+            },
+            {
+                num: '07',
+                cat: 'print',
+                catLabel: 'UV / DTF / UV DTF',
+                title: 'Брендирование и сувенирная продукция',
+                lead: 'Нанесение логотипов, фирменной символики и рекламной информации на сувениры, текстиль и твердые поверхности.',
+                techBadges: [
+                    { name: 'UV-печать', desc: 'полноцветная печать на твердых поверхностях' },
+                    { name: 'DTF-печать', desc: 'яркое нанесение на текстиль через термоперенос' },
+                    { name: 'UV DTF-печать', desc: 'объемные премиальные наклейки на изделия' }
+                ],
+                bullets: [
+                    'Брендирование рабочей и промо-одежды',
+                    'Шопперы, кепки, футболки, худи',
+                    'Термокружки, ручки, ежедневники',
+                    'Корпоративный мерч для конференций'
+                ],
+                examples: 'Примеры: Sparklo, Kompra Group, NSPRINT'
+            },
+            {
+                num: '08',
+                cat: 'outdoor',
+                catLabel: 'Интерьерная графика',
+                title: 'Интерьерная реклама',
+                lead: 'Помогает создать привлекательное пространство для клиентов и гармонично дополняет концепцию помещения.',
+                bullets: [
+                    'Интерьерные световые вывески',
+                    'Объемные логотипы в переговорные',
+                    'Световые панели и конструкции',
+                    'Навигационные системы в БЦ и ТРЦ',
+                    'Информационные стенды и настенная графика'
+                ],
+                examples: 'Примеры: Алматон, BA, Exeed Hall of Fame'
+            },
+            {
+                num: '09',
+                cat: 'print',
+                catLabel: 'Инженерия и монтаж',
+                title: 'Производственно-монтажный сервис',
+                lead: 'Полный цикл технической подготовки, изготовления в собственном цехе и выездного монтажа конструкций в Астане и регионах.',
+                bullets: [
+                    'Выездные замеры на объекте',
+                    'Препресс и 3D-визуализация',
+                    'Фрезеровка и лазерная резка',
+                    'Доставка и шеф-монтаж по Астане и РК'
+                ],
+                examples: 'Собственный парк из 75 единиц оборудования'
+            }
+        ];
+
+        // 2. Портфолио реальных объектов NS Company из Instagram
+        const casesData = [
+            {
+                cat: 'events',
+                tag: 'Оформление мероприятий • Астана',
+                title: '5G Kcell RUN — оформление городского марафона',
+                desc: 'Комплексная застройка стартово-финишного городка: металлические арки с LED-таймерами, сценический комплекс, пресс-волл и ограждения дистанций 5 и 10 км.',
+                specs: 'Сцена, арки, широкоформатная печать и монтаж',
+                img: 'images/project-kcell.jpg',
+                fallback: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1000&q=80',
+                serviceName: 'Оформление мероприятий'
+            },
+            {
+                cat: 'signage',
+                tag: 'Оформление помещений • Корпоративный сектор',
+                title: 'Samruk-Kazyna & Orda Trade Astana',
+                desc: 'Изготовление интерьерных объемных логотипов с контражурной светодиодной подсветкой, фрезеровкой акрила и монтажом на декоративные панели.',
+                specs: 'Фрезеровка, контражурная LED-подсветка',
+                img: 'images/project-samruk.jpg',
+                fallback: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1000&q=80',
+                serviceName: 'Оформление помещений'
+            },
+            {
+                cat: 'events',
+                tag: 'Выставочные стенды • Международный форум',
+                title: 'Выставочный стенд Evident / ETS',
+                desc: 'Проектирование, производство и монтаж выставочного павильона: брендированные стены, стойка ресепшн с объемными буквами и презентационные зоны.',
+                specs: 'Индивидуальный конструктив под ключ',
+                img: 'images/project-evident.jpg',
+                fallback: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1000&q=80',
+                serviceName: 'Оформление выставочных стендов'
+            },
+            {
+                cat: 'signage',
+                tag: 'Наружная реклама • Фасады Астаны',
+                title: 'Фасадная вывеска Colab и SPA-салон IMBIR',
+                desc: 'Производство и высотный монтаж вертикальных фасадных вывесок, световых объемных букв и световых коробов с высокой читаемостью в вечернее время.',
+                specs: 'Акрил, ПВХ, влагозащищенные светодиоды',
+                img: 'images/project-imbir.jpg',
+                fallback: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=80',
+                serviceName: 'Наружная реклама'
+            },
+            {
+                cat: 'events',
+                tag: 'Ивенты и спорт • Астана',
+                title: 'Miss Astana 2024 & Турнир MOOZ «Кубок Столицы»',
+                desc: 'Изготовление крупноформатных пресс-воллов, номеров участниц, фигурных тантамаресок и спортивных фотозон для ледовой арены.',
+                specs: 'Пресс-воллы, фигурная резка ПВХ, полиграфия',
+                img: 'images/project-miss-astana.jpg',
+                fallback: 'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=1000&q=80',
+                serviceName: 'Оформление мероприятий'
+            },
+            {
+                cat: 'merch',
+                tag: 'Полиграфия и мерч • UV / DTF печать',
+                title: 'KompraConf 2024, Univero & мерч Sparklo',
+                desc: 'Комплексное обеспечение конференций и компаний: блокноты на пружине, стикерпаки, ручки с UV-печатью, шопперы, бейсболки и термокружки.',
+                specs: 'UV-печать, DTF-перенос, цифровая полиграфия',
+                img: 'images/project-kompra.jpg',
+                fallback: 'https://images.unsplash.com/photo-1562564055-71e051d33c19?auto=format&fit=crop&w=1000&q=80',
+                serviceName: 'Брендирование и сувенирная продукция'
+            }
+        ];
+
+        // 3. Данные таймлайна «История компании в кадрах»
+        const timelineSteps = [
+            {
+                period: '2012–2014 • Старт компании в Астане',
+                badge: 'Веха 01 • Основание производства',
+                title: 'Основание производственной базы и запуск печатного цеха',
+                desc: 'Старт работы NS Company в Астане (12+ лет на рекламном рынке Казахстана). Формирование команды инженеров, дизайнеров и печатников, выпуск первых наружных вывесок и тиражей полиграфии.',
+                img: 'images/history-2012.jpg',
+                fallback: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1000&q=80',
+                tags: ['Основание компании в Астане', 'Первые заказы по наружной рекламе']
+            },
+            {
+                period: '2017 год • Выход в цифровое пространство',
+                badge: 'Веха 02 • Первый пост @ns_company_astana',
+                title: 'Публикация первого поста в Instagram и формирование открытого портфолио',
+                desc: 'В 2017 году компания открыла официальную страницу @ns_company_astana, начав регулярно публиковать реальные отчеты с монтажей, печатного цеха и застройки мероприятий в столице.',
+                img: 'images/history-2017.jpg',
+                fallback: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1000&q=80',
+                tags: ['Первый пост в Instagram (2017)', 'Открытая фиксация кейсов и монтажей']
+            },
+            {
+                period: '2020–2022 • Расширение мощностей',
+                badge: 'Веха 03 • Цех 1000+ м² и 75 станков',
+                title: 'Масштабирование производства до 1000+ м² и парка из 75 единиц оборудования',
+                desc: 'Запуск собственных участков широкоформатной, UV-, DTF- и UV DTF-печати, лазерной и фрезерной резки. Штат вырос до 30+ профильных специалистов для выполнения сложных проектов без посредников.',
+                img: 'images/history-2021.jpg',
+                fallback: 'https://images.unsplash.com/photo-1565793298595-6a879b1d9492?auto=format&fit=crop&w=1000&q=80',
+                tags: ['1000+ м² производственных площадей', '75 единиц современного оборудования', '30+ сотрудников в команде']
+            },
+            {
+                period: '2024–2026 • Масштаб по всему Казахстану',
+                badge: 'Веха 04 • 5500+ реализованных проектов',
+                title: 'Более 5500 проектов для бизнеса и крупных форумов Казахстана',
+                desc: 'Реализация масштабных проектов для Samruk-Kazyna, 5G Kcell RUN, Miss Astana, международных выставок и городских пространств. Запуск оплаты в рассрочку через Kaspi.kz для клиентов.',
+                img: 'images/history-2025.jpg',
+                fallback: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1000&q=80',
+                tags: ['5500+ реализованных проектов', 'Работа по всему Казахстану', 'Рассрочка от Kaspi.kz']
+            }
+        ];
+
+        // Состояние интерфейса
+        let heroIdx = 0;
+        let heroTimer = null;
+
+        let activeDirCat = 'all';
+        let filteredDirections = [...directionsData];
+        let dirIdx = 0;
+        let dirAutoplayTimer = null;
+        let dirHoverPaused = false;
+
+        let activeCaseCat = 'all';
+        let filteredCases = [...casesData];
+        let caseIdx = 0;
+
+        let timelineIdx = 0;
+
+        let cfgState = {
+            service: 'Наружная реклама',
+            design: 'Есть готовый макет',
+            urgency: 'Стандартные сроки'
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderDirectionsSlider();
+            renderCasesSlider();
+            renderConfiguratorChips();
+            updateWhatsAppPreview();
+            initScrollReveal();
+            initCounters();
+            startHeroTimer();
+            initDirAutoplayHover();
+            startDirAutoplay();
+            bindTouchSwipes();
+            initMobileMenu();
+
+            window.addEventListener('resize', () => {
+                updateDirSliderUI();
+                updateCaseSliderUI();
+            });
+        });
+
+        /* -------------------------------------------------------------------
+           HERO-СЛАЙДЕР
+           ------------------------------------------------------------------- */
+        function setHeroSlide(index) {
+            const slides = document.querySelectorAll('.hero-slide');
+            const dots = document.querySelectorAll('.hero-dot');
+            heroIdx = (index + slides.length) % slides.length;
+
+            slides.forEach((el, i) => el.classList.toggle('active', i === heroIdx));
+            dots.forEach((dot, i) => {
+                if (i === heroIdx) {
+                    dot.classList.remove('w-2', 'bg-slate-300');
+                    dot.classList.add('w-7', 'bg-brand-blue');
+                } else {
+                    dot.classList.remove('w-7', 'bg-brand-blue');
+                    dot.classList.add('w-2', 'bg-slate-300');
+                }
+            });
+
+            document.getElementById('hero-step-label').textContent = `0${heroIdx + 1} / 0${slides.length}`;
+            document.getElementById('hero-progress-bar').style.width = `${((heroIdx + 1) / slides.length) * 100}%`;
+            clearInterval(heroTimer);
+            startHeroTimer();
+        }
+        function nextHeroSlide() { setHeroSlide(heroIdx + 1); }
+        function prevHeroSlide() { setHeroSlide(heroIdx - 1); }
+        function startHeroTimer() { heroTimer = setInterval(nextHeroSlide, 6000); }
+
+        /* -------------------------------------------------------------------
+           СЛАЙДЕР НАПРАВЛЕНИЙ (АВТОПРОКРУТКА + РУЧНОЕ УПРАВЛЕНИЕ И ПАУЗА)
+           ------------------------------------------------------------------- */
+        function filterDirections(cat) {
+            activeDirCat = cat;
+            filteredDirections = cat === 'all'
+                ? [...directionsData]
+                : directionsData.filter(item => item.cat === cat);
+            dirIdx = 0;
+
+            document.querySelectorAll('.dir-tab').forEach(btn => {
+                const isSelected = btn.getAttribute('data-cat') === cat;
+                btn.className = isSelected
+                    ? 'dir-tab px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold bg-brand-blue text-white border border-brand-blue transition whitespace-nowrap cursor-pointer'
+                    : 'dir-tab px-4 py-2 rounded-lg text-xs sm:text-sm font-medium bg-white text-muted hover:text-ink border border-line transition whitespace-nowrap cursor-pointer';
+            });
+
+            renderDirectionsSlider();
+            restartDirAutoplay();
+        }
+
+        function renderDirectionsSlider() {
+            const track = document.getElementById('dir-slider-track');
+            track.innerHTML = filteredDirections.map(item => {
+                const techHtml = item.techBadges ? `
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 mb-4">
+                        ${item.techBadges.map(t => `
+                            <div class="p-2.5 rounded-lg bg-alabaster border border-line">
+                                <span class="block font-display font-extrabold text-xs text-brand-blue">${t.name}</span>
+                                <span class="block text-[11px] text-muted leading-tight mt-0.5">${t.desc}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                ` : '';
+
+                const bulletsHtml = `
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1.5 text-xs sm:text-[13px] text-ink font-medium mb-5">
+                        ${item.bullets.map(b => `
+                            <li class="flex items-start gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-brand-blue mt-1.5 shrink-0"></span>
+                                <span>${b}</span>
+                            </li>
+                        `).join('')}
+                    </ul>
+                `;
+
+                return `
+                    <article class="dir-card ns-card shrink-0 w-full lg:w-[calc(50%-12px)] bg-white rounded-xl border border-line p-6 sm:p-8 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="font-display font-extrabold text-xs text-brand-blue bg-brand-tint px-2.5 py-1 rounded">${item.num}</span>
+                                <span class="text-xs font-medium text-muted">${item.catLabel}</span>
+                            </div>
+                            <h3 class="font-display font-extrabold text-xl sm:text-2xl text-ink uppercase ns-heading-accent mb-4">${item.title}</h3>
+                            <p class="text-xs sm:text-sm text-muted leading-relaxed mb-4">${item.lead}</p>
+                            ${techHtml}
+                            ${bulletsHtml}
+                        </div>
+                        <div class="pt-4 border-t border-line flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                            <span class="text-[11px] text-muted">${item.examples}</span>
+                            <button type="button" onclick="selectForConfigurator('${item.title}', '')" class="shrink-0 py-2.5 px-4 rounded-lg bg-alabaster hover:bg-brand-blue text-ink hover:text-white border border-line hover:border-brand-blue text-xs font-semibold transition flex items-center justify-center gap-2 cursor-pointer">
+                                <span>Заказать расчет</span>
+                                <span>→</span>
+                            </button>
+                        </div>
+                    </article>
+                `;
+            }).join('');
+
+            updateDirSliderUI();
+        }
+
+        function getDirVisibleCount() {
+            return window.innerWidth >= 1024 ? 2 : 1;
+        }
+
+        function moveDirSlider(delta, wrapAround = false) {
+            const visible = getDirVisibleCount();
+            const maxIdx = Math.max(0, filteredDirections.length - visible);
+            if (maxIdx === 0) return;
+
+            if (wrapAround) {
+                dirIdx = dirIdx + delta > maxIdx ? 0 : (dirIdx + delta < 0 ? maxIdx : dirIdx + delta);
+            } else {
+                dirIdx = Math.min(maxIdx, Math.max(0, dirIdx + delta));
+            }
+            updateDirSliderUI();
+        }
+
+        function manualMoveDirSlider(delta) {
+            moveDirSlider(delta, true);
+            restartDirAutoplay();
+        }
+
+        function goToDirSlide(targetIdx) {
+            const visible = getDirVisibleCount();
+            const maxIdx = Math.max(0, filteredDirections.length - visible);
+            dirIdx = Math.min(maxIdx, Math.max(0, targetIdx));
+            updateDirSliderUI();
+            restartDirAutoplay();
+        }
+
+        function updateDirSliderUI() {
+            const track = document.getElementById('dir-slider-track');
+            const firstCard = track.querySelector('.dir-card');
+            if (!firstCard) return;
+
+            const gap = 24;
+            const step = firstCard.offsetWidth + gap;
+            track.style.transform = `translateX(-${dirIdx * step}px)`;
+
+            const total = filteredDirections.length;
+            const visible = Math.min(total, getDirVisibleCount());
+            const endItem = Math.min(total, dirIdx + visible);
+            const maxIdx = Math.max(0, total - visible);
+
+            document.getElementById('dir-counter').textContent = `${dirIdx + 1} — ${endItem} из ${total}`;
+            document.getElementById('dir-progress-bar').style.width = `${(endItem / total) * 100}%`;
+
+            // Точки-индикаторы по доступным позициям прокрутки
+            const dotsBox = document.getElementById('dir-dots');
+            if (dotsBox) {
+                let dotsHtml = '';
+                for (let i = 0; i <= maxIdx; i++) {
+                    const active = i === dirIdx;
+                    dotsHtml += `<button type="button" onclick="goToDirSlide(${i})" aria-label="Позиция ${i + 1}" class="h-2 rounded-full transition-all cursor-pointer ${active ? 'w-7 bg-brand-blue' : 'w-2 bg-slate-300 hover:bg-slate-400'}"></button>`;
+                }
+                dotsBox.innerHTML = dotsHtml;
+            }
+        }
+
+        function startDirAutoplay() {
+            clearInterval(dirAutoplayTimer);
+            dirAutoplayTimer = setInterval(() => {
+                if (!dirHoverPaused) {
+                    moveDirSlider(1, true);
+                }
+            }, 4500);
+        }
+
+        function restartDirAutoplay() {
+            startDirAutoplay();
+        }
+
+        function initDirAutoplayHover() {
+            const viewport = document.getElementById('dir-slider-viewport');
+            if (!viewport) return;
+            viewport.addEventListener('mouseenter', () => { dirHoverPaused = true; });
+            viewport.addEventListener('mouseleave', () => { dirHoverPaused = false; });
+        }
+
+        /* -------------------------------------------------------------------
+           СЛАЙДЕР РЕАЛИЗОВАННЫХ ПРОЕКТОВ (ПОРТФОЛИО)
+           ------------------------------------------------------------------- */
+        function filterCases(cat) {
+            activeCaseCat = cat;
+            filteredCases = cat === 'all'
+                ? [...casesData]
+                : casesData.filter(item => item.cat === cat);
+            caseIdx = 0;
+
+            document.querySelectorAll('.case-tab').forEach(btn => {
+                const isSelected = btn.getAttribute('data-case-cat') === cat;
+                btn.className = isSelected
+                    ? 'case-tab px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold bg-brand-blue text-white border border-brand-blue transition whitespace-nowrap cursor-pointer'
+                    : 'case-tab px-4 py-2 rounded-lg text-xs sm:text-sm font-medium bg-alabaster text-muted hover:text-ink border border-line transition whitespace-nowrap cursor-pointer';
+            });
+
+            renderCasesSlider();
+        }
+
+        function renderCasesSlider() {
+            const track = document.getElementById('case-slider-track');
+            track.innerHTML = filteredCases.map(item => `
+                <article class="case-card ns-card shrink-0 w-full lg:w-[calc(50%-12px)] bg-alabaster rounded-xl border border-line overflow-hidden flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-56 sm:h-64 bg-slateDark overflow-hidden">
+                            <img src="${item.img}" onerror="this.src='${item.fallback}'" alt="${item.title}" class="w-full h-full object-cover">
+                            <div class="absolute top-3.5 left-3.5 bg-white/95 text-ink text-[11px] font-bold px-3 py-1 rounded">
+                                ${item.tag}
+                            </div>
+                        </div>
+                        <div class="p-6 sm:p-7">
+                            <h3 class="font-display font-extrabold text-lg sm:text-xl text-ink">${item.title}</h3>
+                            <p class="text-xs sm:text-sm text-muted leading-relaxed mt-2.5">${item.desc}</p>
+                        </div>
+                    </div>
+                    <div class="px-6 sm:px-7 pb-6 pt-4 border-t border-line flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                        <span class="text-xs font-medium text-ink">${item.specs}</span>
+                        <button type="button" onclick="selectForConfigurator('${item.serviceName}', 'Интересует решение уровня проекта: ${item.title}')" class="shrink-0 py-2.5 px-4 rounded-lg bg-brand-blue hover:bg-brand-blueDark text-white text-xs font-semibold transition flex items-center justify-center gap-2 cursor-pointer">
+                            <span>Хочу похожее решение</span>
+                            <span>→</span>
+                        </button>
+                    </div>
+                </article>
+            `).join('');
+
+            updateCaseSliderUI();
+        }
+
+        function getCaseVisibleCount() {
+            return window.innerWidth >= 1024 ? 2 : 1;
+        }
+
+        function moveCaseSlider(delta) {
+            const visible = getCaseVisibleCount();
+            const maxIdx = Math.max(0, filteredCases.length - visible);
+            caseIdx = Math.min(maxIdx, Math.max(0, caseIdx + delta));
+            updateCaseSliderUI();
+        }
+
+        function updateCaseSliderUI() {
+            const track = document.getElementById('case-slider-track');
+            const firstCard = track.querySelector('.case-card');
+            if (!firstCard) return;
+
+            const gap = 24;
+            const step = firstCard.offsetWidth + gap;
+            track.style.transform = `translateX(-${caseIdx * step}px)`;
+
+            const total = filteredCases.length;
+            const visible = Math.min(total, getCaseVisibleCount());
+            const endItem = Math.min(total, caseIdx + visible);
+
+            document.getElementById('case-counter').textContent = `${caseIdx + 1} — ${endItem} из ${total}`;
+            document.getElementById('case-progress-bar').style.width = `${(endItem / total) * 100}%`;
+
+            document.getElementById('case-prev').disabled = caseIdx === 0;
+            document.getElementById('case-next').disabled = caseIdx >= total - visible;
+        }
+
+        /* -------------------------------------------------------------------
+           ТАЙМЛАЙН ИСТОРИИ КОМПАНИИ (2012 -> 2017 -> 2022 -> 2026)
+           ------------------------------------------------------------------- */
+        function setTimelineStep(index) {
+            timelineIdx = (index + timelineSteps.length) % timelineSteps.length;
+            const step = timelineSteps[timelineIdx];
+
+            document.querySelectorAll('.tl-tab').forEach((btn, i) => {
+                const active = i === timelineIdx;
+                btn.className = active
+                    ? 'tl-tab text-left p-4 rounded-xl border transition cursor-pointer bg-ink text-white border-ink'
+                    : 'tl-tab text-left p-4 rounded-xl border transition cursor-pointer bg-white text-ink border-line hover:border-brand-blue';
+                const subLabel = btn.querySelector('span:first-child');
+                const descLabel = btn.querySelector('span:last-child');
+                subLabel.className = active
+                    ? 'block text-[11px] font-bold uppercase tracking-wider text-brand-ochre'
+                    : 'block text-[11px] font-bold uppercase tracking-wider text-brand-blue';
+                descLabel.className = active
+                    ? 'block text-xs text-slate-300 mt-1 line-clamp-1'
+                    : 'block text-xs text-muted mt-1 line-clamp-1';
+            });
+
+            const imgEl = document.getElementById('tl-image');
+            imgEl.onerror = function () { this.src = step.fallback; };
+            imgEl.src = step.img;
+
+            document.getElementById('tl-badge').textContent = step.badge;
+            document.getElementById('tl-period').textContent = step.period;
+            document.getElementById('tl-title').textContent = step.title;
+            document.getElementById('tl-desc').textContent = step.desc;
+            document.getElementById('tl-metrics').innerHTML = step.tags.map(t =>
+                `<span class="text-xs font-semibold bg-alabaster border border-line px-3 py-1.5 rounded-md text-ink">${t}</span>`
+            ).join('');
+        }
+
+        function nextTimelineStep() { setTimelineStep(timelineIdx + 1); }
+        function prevTimelineStep() { setTimelineStep(timelineIdx - 1); }
+
+        /* -------------------------------------------------------------------
+           ПОДДЕРЖКА СВАЙПОВ НА МОБИЛЬНЫХ УСТРОЙСТВАХ
+           ------------------------------------------------------------------- */
+        function bindTouchSwipes() {
+            attachSwipe('hero-slider-box', nextHeroSlide, prevHeroSlide);
+            attachSwipe('dir-slider-viewport', () => manualMoveDirSlider(1), () => manualMoveDirSlider(-1));
+            attachSwipe('case-slider-viewport', () => moveCaseSlider(1), () => moveCaseSlider(-1));
+        }
+
+        function attachSwipe(id, onLeft, onRight) {
+            const el = document.getElementById(id);
+            if (!el) return;
+            let startX = 0;
+            el.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+            el.addEventListener('touchend', e => {
+                const diff = startX - e.changedTouches[0].clientX;
+                if (Math.abs(diff) > 45) {
+                    diff > 0 ? onLeft() : onRight();
+                }
+            }, { passive: true });
+        }
+
+        /* -------------------------------------------------------------------
+           ОДНОКРАТНЫЙ СЧЕТЧИК ЦИФР И SCROLL REVEAL
+           ------------------------------------------------------------------- */
+        function initScrollReveal() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        }
+
+        function initCounters() {
+            const counterObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateValue(entry.target);
+                        counterObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.35 });
+
+            document.querySelectorAll('.count-up').forEach(el => counterObserver.observe(el));
+        }
+
+        function animateValue(el) {
+            const target = parseInt(el.getAttribute('data-target'), 10);
+            const duration = 1100;
+            const startTime = performance.now();
+
+            function step(now) {
+                const progress = Math.min((now - startTime) / duration, 1);
+                const eased = 1 - Math.pow(1 - progress, 3);
+                el.textContent = Math.round(target * eased);
+                if (progress < 1) requestAnimationFrame(step);
+            }
+            requestAnimationFrame(step);
+        }
+
+        /* -------------------------------------------------------------------
+           3-ШАГОВЫЙ КОНФИГУРАТОР ЗАЯВКИ В WHATSAPP
+           ------------------------------------------------------------------- */
+        function renderConfiguratorChips() {
+            const container = document.getElementById('cfg-service-chips');
+            container.innerHTML = directionsData.map(item => {
+                const active = item.title === cfgState.service;
+                return `
+                    <button type="button" onclick="setCfgService('${item.title}')"
+                        class="px-3.5 py-2 rounded-lg text-xs sm:text-sm font-medium border transition cursor-pointer ${active ? 'bg-brand-blue text-white border-brand-blue font-semibold' : 'bg-white text-ink border-line hover:border-brand-blue'}">
+                        ${item.title}
+                    </button>
+                `;
+            }).join('');
+        }
+
+        function setCfgService(title) {
+            cfgState.service = title;
+            renderConfiguratorChips();
+            updateWhatsAppPreview();
+        }
+
+        function setCfgDesign(val) {
+            cfgState.design = val;
+            document.querySelectorAll('.cfg-design-btn').forEach(btn => {
+                const active = btn.getAttribute('data-val') === val;
+                btn.className = active
+                    ? 'cfg-design-btn p-3 rounded-lg border text-left text-xs sm:text-sm font-semibold transition cursor-pointer bg-brand-blue text-white border-brand-blue'
+                    : 'cfg-design-btn p-3 rounded-lg border text-left text-xs sm:text-sm font-medium transition cursor-pointer bg-white text-ink border-line hover:border-brand-blue';
+            });
+            updateWhatsAppPreview();
+        }
+
+        function setCfgUrgency(val) {
+            cfgState.urgency = val;
+            document.querySelectorAll('.cfg-urg-btn').forEach(btn => {
+                const active = btn.getAttribute('data-urg') === val;
+                btn.className = active
+                    ? 'cfg-urg-btn p-3 rounded-lg border text-left text-xs sm:text-sm font-semibold transition cursor-pointer bg-brand-blue text-white border-brand-blue'
+                    : 'cfg-urg-btn p-3 rounded-lg border text-left text-xs sm:text-sm font-medium transition cursor-pointer bg-white text-ink border-line hover:border-brand-blue';
+            });
+            updateWhatsAppPreview();
+        }
+
+        function selectForConfigurator(serviceTitle, presetNote) {
+            setCfgService(serviceTitle);
+            if (presetNote) {
+                document.getElementById('cfg-comment').value = presetNote;
+                updateWhatsAppPreview();
+            }
+            document.getElementById('configurator').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function updateWhatsAppPreview() {
+            const comment = document.getElementById('cfg-comment').value.trim();
+            let message = `Здравствуйте, NS Company (Астана, ул. Алпамыс батыр, 42)!\nПрошу рассчитать стоимость и сроки изготовления:\n\n`;
+            message += `• Направление: ${cfgState.service}\n`;
+            message += `• Макет и замер: ${cfgState.design}\n`;
+            message += `• Сроки / оплата: ${cfgState.urgency}\n`;
+            if (comment) {
+                message += `• Детали задачи: ${comment}\n`;
+            }
+
+            document.getElementById('cfg-preview-text').textContent = message;
+            document.getElementById('cfg-wa-link').href = `https://wa.me/?text=${encodeURIComponent(message)}`;
+        }
+
+        function copyBriefText() {
+            const text = document.getElementById('cfg-preview-text').textContent;
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+
+            const toast = document.getElementById('copy-toast');
+            toast.classList.remove('hidden');
+            setTimeout(() => toast.classList.add('hidden'), 2600);
+        }
+
+        function togglePrepress() {
+            const panel = document.getElementById('prepress-panel');
+            const icon = document.getElementById('prepress-icon');
+            const isHidden = panel.classList.contains('hidden');
+            panel.classList.toggle('hidden', !isHidden);
+            icon.textContent = isHidden ? 'Скрыть −' : 'Развернуть +';
+        }
+
+        function togglePitchModal(open) {
+            const modal = document.getElementById('pitch-modal');
+            modal.classList.toggle('hidden', !open);
+            modal.classList.toggle('flex', open);
+        }
+
+        function initMobileMenu() {
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+            menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => menu.classList.add('hidden')));
+        }
+    </script>
+</body>
+</html>
